@@ -1,0 +1,28 @@
+body {
+	padding-top: 70px;
+}
+hr{
+	border: 1px dashed #61acf6;
+}
+.btn-lg {
+	padding: 9px 10px;
+	font-size: 14px;
+	line-height: 1.33;
+	border-radius: 3px;
+}
+
+.red {
+	color: #dc4c4c!important;
+}
+
+
+/*更改bootstrap默认的提示框颜色*/
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: white;
+	text-align: center;
+	background-color: red;
+	border-radius: 4px;
+}

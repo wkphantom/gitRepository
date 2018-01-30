@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- 个人基本信息录入页面   姓名  身份证号 有效期  性别 出生年月  联系电话 电子邮件 地址 开户行 银行卡号 身份证正面（图片） 身份反面（图片 -->
+<html>
+
+	<head id="head">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=2">
+		<meta name="keywords" content="无车承运人,发货,物流,衡东,衡水,衡东物流" />
+		<meta name="author" content="Mr.w(魏凯)" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/city-picker.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/form-validate.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/jquery-time/css/lq.datetimepick.css" />
+		<!--只在本文件使用的样式-->
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<!--顶部信息-->
+		<header id="header"> </header>
+		<!--正文内容-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<form class="form-horizontal"  action="jkjk.jsp" method="get">
+						<hr />
+						<div class="form-group">
+							<label class="col-sm-4 control-label">姓名</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name="name_of_person"
+									class="form-control required" 
+									data-toggle="city-picker tooltip" 
+									autofocus placeholder="请输入姓名" 
+									data-valid="isNonEmpty" 
+									data-error="姓名不能为空">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">身份证号</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name="identity_document_number"
+									class="form-control required" 
+									placeholder="请输入身份证号" data-toggle="tooltip" 
+									data-valid="isNonEmpty" data-error="身份证号不能为空">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">身份证有效期</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name=""
+									class="form-control required" 
+									placeholder="请选择身份证有效期" data-toggle="tooltip" 
+									data-valid="isMobile" data-error="请选择正确的身份证有效期">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">性别</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name="gender"
+									class="form-control required" 
+									placeholder="请输入性别" data-toggle="tooltip" 
+									data-valid="isNonEmpty" data-error="性别不能为空">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">出生年月</label>
+							<div class="col-sm-4">
+								<input id="datetimepicker" 
+									name="birth_date"
+									type="text" class="form-control required" 
+									placeholder="请选择出生年月" data-toggle="tooltip" 
+									data-valid="isMobile" data-error="请选择正确的出生年月" value="2015-5-20">
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<label class="col-sm-4 control-label">联系电话</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name="mobile_telephone_number"
+									class="form-control required" 
+									placeholder="请输入手机号码" data-toggle="tooltip" 
+									data-valid="isMobile" data-error="请输入正确的手机号码">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">电子邮件</label>
+							<div class="col-sm-4">
+								<input type="text" 
+									name="e-mail"
+									class="form-control required" 
+									placeholder="请输入电子邮件" data-toggle="tooltip" 
+									data-valid="isMobile" data-error="请输入正确的电子邮件">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">详细地址</label>
+
+							<div class="col-sm-2">
+								<input id="ip_address_home" type="text" 
+									name="communication_number"
+									class="form-control" 
+									autofocus placeholder="请选择省市区" data-toggle="city-picker">
+							</div>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" 
+									placeholder="请输入详细地址">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">开户行</label>
+							<div class="col-sm-4">
+								 <select id="banktype" name="banktype" class="selectpicker  form-control" 
+								 	 data-live-search="false">
+                                        <option value="0">中国工商银行</option>
+                                        <option value="1">中国建设银行</option>
+                                        <option value="2">中国农业银行</option>
+                                        <option value="3">中国民生银行</option>
+                                        <option value="4">中国银行</option>
+                                        <option value="5">招商银行</option>
+                                        <option value="6">中国光大银行</option>
+                                        <option value="7">中信银行</option>
+                                        <option value="8">交通银行</option>
+                                        <option value="9">兴业银行</option>
+                                        <option value="10">兴业银行</option>
+                                </select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">银行卡号</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control required" 
+									placeholder="请输入银行卡号码" data-toggle="tooltip" 
+									data-valid="isNonEmpty" data-error="银行卡号码不能为空">
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<label class="col-sm-4 control-label">身份证正面照</label>
+							<div class="col-sm-4">
+								<input type="file">
+								<img />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3">
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="btn btn-danger ">取消</button>
+							</div>
+							<div class="col-sm-2">
+
+							</div>
+							<div class="col-sm-2">
+								<button id="submit" type="button" class="btn btn-success ">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+
+		<!--网站备案和底部信息-->
+		<footer id="footer"> </footer>
+
+		<script src="/autocarrier/static/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/search.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/self-info.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="/autocarrier/static/plugin/jquery-time/js/selectUi.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="/autocarrier/static/plugin/jquery-time/js/lq.datetimepick.js" type="text/javascript" charset="UTF-8"></script>
+
+		<!--模版引擎位置-->
+		<script id="" type="text/html">
+		</script>
+		<!--/*引入头部和底部文件*/-->
+		<script type="text/javascript">
+			$(function() {
+				$("#header").load('/autocarrier/html/index-top.html');
+				$("#footer").load('/autocarrier/html/index-buttom.html');
+			});
+		</script>
+	</body>
+
+</html>

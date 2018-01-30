@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="段雪杨" />
+		<title>运费结算</title>
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/city-picker.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/form-validate.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.css" />
+		<style type="text/css">
+			/*屏蔽bootstrap-table无数据的提示信息*/
+			
+			.fixed-table-container .no-records-found {
+				text-align: center;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部信息-->
+		<header id="header"> </header>
+		<!--正文内容-->
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">合同编号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" data-toggle="tooltip">
+									</div>
+									<label class="col-sm-2 control-label">紧急程度</label>
+									<div class="col-sm-4">
+										<select name="jjcd" class="form-control required">
+											<option value="yiban">一般</option>
+											<option value="jinji">紧急</option>
+										</select>
+									</div>
+								</div>
+								<div class="panel-heading">承运人信息</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">开户银行</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+									<label class="col-sm-2 control-label">开户账号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">车主</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+									<label class="col-sm-2 control-label">手机号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">司机</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+									<label class="col-sm-2 control-label">发动机号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">车号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+									<label class="col-sm-2 control-label">车架号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">驾驶证编号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--发货信息结束-->
+
+					<div class="panel panel-default">
+						<div class="panel-heading">收货人信息</div>
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">联系人</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+									<label class="col-sm-2 control-label">联系方式</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">送货地址</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--货物信息开始-->
+					<div class="panel panel-default">
+						<div class="panel-heading">货物信息</div>
+						<div class="panel-body" style="padding:	0px;">
+							<div id="toolbar">
+								<button class="btn btn-info" onclick="openModal()">新增</button>
+								<button class="btn btn-danger" onclick="removeCargoInfo()">删除</button>
+							</div>
+							<table id="table" class="table" data-toggle="table" data-click-to-select="true" data-toolbar="#toolbar">
+								<thead>
+									<tr>
+										<th data-field="state" data-checkbox="true"></th>
+										<th data-field="index_id" data-align="center" data-formatter="formatterIndex">序号</th>
+										<th data-field="description_of_goods" data-align="center">货物名称</th>
+										<th data-field="cargo_type_classification" data-align="center">规格型号</th>
+										<th data-field="total_number_of_packages" data-align="center">数量</th>
+										<th data-field="package_type" data-align="center">包装形式</th>
+										<th data-field="weight_and_cube" data-align="center">重量体积</th>
+										<th data-field="return_bill" data-align="center">返回票据</th>
+										<th data-field="freight_goods" data-align="center">运费</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<!--货物信息结束-->
+					<div class="panel panel-default">
+						<div class="panel-heading">收货信息</div>
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">签收人</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">签收图片</label>
+									<div class="col-sm-6">
+										<input type="file" accept="image/gif, image/jpeg">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">GPS记录</label>
+									<textarea name="gpsjl" rows="5" cols="110"></textarea>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-3">
+										<button class="btn btn-success">支付运费</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--货物信息增加弹出框-->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">新增货物信息</h4>
+					</div>
+					<div class="modal-body">
+						<form id="goodsInfo" class="form-horizontal" style="padding:0px 20px">
+							<div class="form-group" style="display: none;">
+								<label>序号</label>
+								<input type="text" class="form-control" placeholder="" name="index_id">
+							</div>
+							<div class="form-group">
+								<label>货物名称</label>
+								<input type="text" class="form-control" placeholder="" name="description_of_goods">
+							</div>
+							<div class="form-group">
+								<label>规格型号</label>
+								<input type="text" class="form-control" placeholder="" name="cargo_type_classification">
+							</div>
+							<div class="form-group">
+								<label>数量</label>
+								<input type="text" class="form-control" placeholder="" name="total_number_of_packages">
+							</div>
+							<div class="form-group">
+								<label>包装形式</label>
+								<input type="text" class="form-control" placeholder="" name="package_type">
+							</div>
+							<div class="form-group">
+								<label>重量体积</label>
+								<input type="text" class="form-control" placeholder="" name="weight_and_cube">
+							</div>
+							<div class="form-group">
+								<label>返回票据</label>
+								<input type="text" class="form-control" placeholder="" name="return_bill">
+							</div>
+							<div class="form-group">
+								<label>运费</label>
+								<input type="text" class="form-control" placeholder="" name="freight_goods">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary" onclick="saveData()">再次添加货物信息</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--货物信息增加弹出框结束-->
+		<!--网站备案和底部信息-->
+		<footer id="footer"> </footer>
+
+		<script src="/autocarrier/static/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/search.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-serializejson.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/goods/goods-add.js" type="text/javascript" charset="utf-8"></script>
+		<!--模版引擎位置-->
+		<script id="" type="text/html">
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("#header").load('index-top.html');
+				$("#footer").load('index-buttom.html');
+			});
+		</script>
+	</body>
+
+</html>

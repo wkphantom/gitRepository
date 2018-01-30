@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>basic-demo</title>
+</head>
+
+<body>
+<div id="content"></div>
+<script src="../js/jquery.js"></script>
+<script src="../js/art-template/template-web.js"></script>
+<script id="test" type="text/html">
+{{if isAdmin}}
+
+<h1><%=title%></h1>
+<ul>
+    {{each list value i}}
+        <li>索引 {{i + 1}} ：{{value}}</li>
+    {{/each}}
+</ul>
+
+{{/if}}
+</script>
+
+<script>
+
+$.ajax({
+	type:"post",
+	url:"/autocarrier/json/test.json",
+	async:false,
+	success:function(data){
+		var html = template('test', data);
+		document.getElementById('content').innerHTML = html;
+	}
+});
+</script>
+</body>
+</html>

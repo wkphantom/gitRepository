@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easywork.hengdong.dao.VehicleMapper">
+  <resultMap id="BaseResultMap" type="com.easywork.hengdong.pojo.Vehicle">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="vehicle_number" jdbcType="VARCHAR" property="vehicleNumber" />
+    <result column="license_plate_type_code" jdbcType="VARCHAR" property="licensePlateTypeCode" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="network_access_address" jdbcType="VARCHAR" property="networkAccessAddress" />
+    <result column="vehicle_classification" jdbcType="VARCHAR" property="vehicleClassification" />
+    <result column="communication_number" jdbcType="VARCHAR" property="communicationNumber" />
+    <result column="use_character" jdbcType="VARCHAR" property="useCharacter" />
+    <result column="vehicle_brand_model" jdbcType="VARCHAR" property="vehicleBrandModel" />
+    <result column="vehicle_frame_number" jdbcType="VARCHAR" property="vehicleFrameNumber" />
+    <result column="vehicle_engine_number" jdbcType="VARCHAR" property="vehicleEngineNumber" />
+    <result column="register_date_time" jdbcType="VARCHAR" property="registerDateTime" />
+    <result column="vehicle_licence_issue_date" jdbcType="VARCHAR" property="vehicleLicenceIssueDate" />
+    <result column="driving_period_start_date" jdbcType="VARCHAR" property="drivingPeriodStartDate" />
+    <result column="driving_period_end_date" jdbcType="VARCHAR" property="drivingPeriodEndDate" />
+    <result column="driving_certification_unit" jdbcType="VARCHAR" property="drivingCertificationUnit" />
+    <result column="vehicle_tare" jdbcType="VARCHAR" property="vehicleTare" />
+    <result column="vehicle_laden_weight" jdbcType="VARCHAR" property="vehicleLadenWeight" />
+    <result column="vehicle_tonnage" jdbcType="VARCHAR" property="vehicleTonnage" />
+    <result column="vehicle_maximum_traction_weight" jdbcType="VARCHAR" property="vehicleMaximumTractionWeight" />
+    <result column="vehicle_seats" jdbcType="VARCHAR" property="vehicleSeats" />
+    <result column="internal_dimension" jdbcType="VARCHAR" property="internalDimension" />
+    <result column="vehicle_length" jdbcType="VARCHAR" property="vehicleLength" />
+    <result column="vehicle_width" jdbcType="VARCHAR" property="vehicleWidth" />
+    <result column="vehicle_height" jdbcType="VARCHAR" property="vehicleHeight" />
+    <result column="inspection_record" jdbcType="VARCHAR" property="inspectionRecord" />
+    <result column="driving_photo" jdbcType="VARCHAR" property="drivingPhoto" />
+    <result column="road_transport_certificate_number" jdbcType="VARCHAR" property="roadTransportCertificateNumber" />
+    <result column="place_or_location" jdbcType="VARCHAR" property="placeOrLocation" />
+    <result column="permit_number" jdbcType="VARCHAR" property="permitNumber" />
+    <result column="business_scope" jdbcType="VARCHAR" property="businessScope" />
+    <result column="issuing_date" jdbcType="VARCHAR" property="issuingDate" />
+    <result column="license_initial_collection_date" jdbcType="VARCHAR" property="licenseInitialCollectionDate" />
+    <result column="period_start_date" jdbcType="VARCHAR" property="periodStartDate" />
+    <result column="period_end_date" jdbcType="VARCHAR" property="periodEndDate" />
+    <result column="road_transport_certification_unit" jdbcType="VARCHAR" property="roadTransportCertificationUnit" />
+    <result column="road_transport_photo" jdbcType="VARCHAR" property="roadTransportPhoto" />
+    <result column="vehicle_identity_card_number" jdbcType="VARCHAR" property="vehicleIdentityCardNumber" />
+    <result column="vehicle_identity_card_type_code" jdbcType="VARCHAR" property="vehicleIdentityCardTypeCode" />
+    <result column="authenticating_code" jdbcType="VARCHAR" property="authenticatingCode" />
+    <result column="card_operating_code" jdbcType="VARCHAR" property="cardOperatingCode" />
+    <result column="status_change_date_time" jdbcType="VARCHAR" property="statusChangeDateTime" />
+    <result column="vehicle_corporation_name" jdbcType="VARCHAR" property="vehicleCorporationName" />
+    <result column="logistics_exchange_code" jdbcType="VARCHAR" property="logisticsExchangeCode" />
+    <result column="issue_card_enterprise" jdbcType="VARCHAR" property="issueCardEnterprise" />
+  </resultMap>
+</mapper>

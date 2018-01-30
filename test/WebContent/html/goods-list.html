@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>货源列表</title>
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/city-picker.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/form-validate.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.css" />
+
+		<style type="text/css">
+			.table tr {}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部信息-->
+		<header id="header"> </header>
+		<!--搜索框信息-->
+		<nav id="search" class="container text-center" style="margin-bottom: 15px;">
+			<form class="form-inline">
+				<div class="form-group">
+					<span class="btn-lg btn-info">出发地</span>
+				</div>
+				<div class="form-group">
+					<div style="position: relative;">
+						<input id="ip_search1" class="form-control" placeholder="请选择出发地" type="text" value="" data-toggle="city-picker">
+					</div>
+				</div>
+				<div class="form-group">
+					<span class="btn-lg btn-info">目的地</span>
+				</div>
+				<div class="form-group">
+					<div style="position: relative;">
+						<input id="ip_search2" class="form-control" placeholder="请选择目的地" type="text" value="" data-toggle="city-picker">
+					</div>
+				</div>
+				<div class="form-group">
+					<select class="form-control">
+						<option selected="selected" value="1">货源</option>
+						<option value="2">车源</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success">搜索</button>
+				</div>
+			</form>
+		</nav>
+		<!--正文内容-->
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="row clearfix">
+						<!--中央区域-->
+						<div class="col-md-12 column">
+							<div id="goods-list" class="container-fluid">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--网站备案和底部信息-->
+		<footer id="footer"> </footer>
+
+		<script src="/autocarrier/static/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/search.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/goods/publishGoods.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#header").load('index-top.html');
+				$("#footer").load('index-buttom.html');
+			});
+		</script>
+		<script id="goods-list-template" type="text/html">
+			{{each list value i}}
+			<div style="background-color:{{i%2==0?'whitesmoke':'white'}} ;padding: 3px 0;margin: 3px 0;">
+				<table class="table" style="margin: 10px 0;">
+					<tr>
+						<td colspan="4" style="border:hidden">
+							<div style="float: left;">
+								<span class="h4">{{value.place_of_from}}</span>
+								<span class="glyphicon glyphicon-arrow-right"></span>
+								<span class="h4">{{value.place_of_to}}</span>
+							</div>
+							<div style="float: right;">
+								<button class="btn btn-info">我要报价</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<a href="javascript:void(0)" title="{{value.owner_enterprise}}">{{value.owner_enterprise}}</a>
+						</td>
+						<td colspan="2">
+							<span>认证信息：</span>
+							<span>{{value.vehicle_identify_info}}</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							信用信息：{{value.vehicle_credit_info}}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">货物类型：{{value.goods_classification}}</td>
+						<td>货物重量（吨）：{{value.goods_weight}}</td>
+						<td>货物体积（立方米）：{{value.goods_volume}}</td>
+					</tr>
+					<tr>
+						<td colspan="3">计划发货时间：{{value.plan_time}}</td>
+						<td style="text-align: right;color: red;">{{value.date}}</td>
+					</tr>
+				</table>
+			</div>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					type: "get",
+					url: "../json/goods-list.json",
+					async: false,
+					success: function(data) {
+						var html = template('goods-list-template', data);
+						document.getElementById("goods-list").innerHTML = html;
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

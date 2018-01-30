@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easywork.hengdong.dao.EnterpriseMapper">
+  <resultMap id="BaseResultMap" type="com.easywork.hengdong.pojo.Enterprise">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterprise_name" jdbcType="VARCHAR" property="enterpriseName" />
+    <result column="organization_code" jdbcType="VARCHAR" property="organizationCode" />
+    <result column="enterprise_economic_type_code" jdbcType="VARCHAR" property="enterpriseEconomicTypeCode" />
+    <result column="country_subdivision_name" jdbcType="VARCHAR" property="countrySubdivisionName" />
+    <result column="country_subdivision_code" jdbcType="VARCHAR" property="countrySubdivisionCode" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+    <result column="telephone_number" jdbcType="VARCHAR" property="telephoneNumber" />
+    <result column="fax_number" jdbcType="VARCHAR" property="faxNumber" />
+    <result column="communication_number" jdbcType="VARCHAR" property="communicationNumber" />
+    <result column="postal_identification_code" jdbcType="VARCHAR" property="postalIdentificationCode" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="network_access_address" jdbcType="VARCHAR" property="networkAccessAddress" />
+    <result column="enterprise_registration_number" jdbcType="VARCHAR" property="enterpriseRegistrationNumber" />
+    <result column="enterprise_registration_address" jdbcType="VARCHAR" property="enterpriseRegistrationAddress" />
+    <result column="legal_representative" jdbcType="VARCHAR" property="legalRepresentative" />
+    <result column="company_type" jdbcType="VARCHAR" property="companyType" />
+    <result column="business_scope" jdbcType="VARCHAR" property="businessScope" />
+    <result column="registered_capital" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="establishment_date" jdbcType="VARCHAR" property="establishmentDate" />
+    <result column="period_start_date" jdbcType="VARCHAR" property="periodStartDate" />
+    <result column="period_end_date" jdbcType="VARCHAR" property="periodEndDate" />
+    <result column="certification_unit" jdbcType="VARCHAR" property="certificationUnit" />
+    <result column="business_business_photo" jdbcType="VARCHAR" property="businessBusinessPhoto" />
+    <result column="permit_number" jdbcType="VARCHAR" property="permitNumber" />
+    <result column="place_or_location" jdbcType="VARCHAR" property="placeOrLocation" />
+    <result column="transport_business_scope" jdbcType="VARCHAR" property="transportBusinessScope" />
+    <result column="permit_grant_date" jdbcType="VARCHAR" property="permitGrantDate" />
+    <result column="transport_period_start_date" jdbcType="VARCHAR" property="transportPeriodStartDate" />
+    <result column="transport_period_end_date" jdbcType="VARCHAR" property="transportPeriodEndDate" />
+    <result column="transport_certification_unit" jdbcType="VARCHAR" property="transportCertificationUnit" />
+    <result column="transport_photo" jdbcType="VARCHAR" property="transportPhoto" />
+    <result column="own_cargo_vehicles_number" jdbcType="VARCHAR" property="ownCargoVehiclesNumber" />
+    <result column="transport_capacity_scale" jdbcType="VARCHAR" property="transportCapacityScale" />
+    <result column="workers_number" jdbcType="VARCHAR" property="workersNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>

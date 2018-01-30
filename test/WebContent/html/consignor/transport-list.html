@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="段雪杨" />
+		<title>衡东物流云公共信息平台</title>
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/city-picker.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/form-validate.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.css" />
+		<style type="text/css">
+			/*屏蔽bootstrap-table无数据的提示信息*/
+			
+			.fixed-table-container .no-records-found {
+				text-align: center;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部信息-->
+		<header id="header">运输合同列表</header>
+		<!--正文内容-->
+		<div class="container">
+			<div class="row clearfix">
+				<!--货物信息开始-->
+				<div class="panel panel-default">
+					<div class="panel-heading">货物信息</div>
+					<div class="panel-body" style="padding:	0px;">
+						<table id="table" class="table" data-pagination="true" data-page-size=5 data-page-list=[5,20] data-toggle="table" data-search="true" data-click-to-select="true">
+							<thead>
+								<tr>
+									<th data-field="state" data-checkbox="true"></th>
+									<th data-field="time_of_sign" data-align="center">签订时间</th>
+									<th data-field="number_of_contract" data-align="center">合同编号</th>
+									<th data-field="name_goods" data-align="center">货物名称</th>
+									<th data-field="people_of_consign" data-align="center">托运人</th>
+									<th data-field="people_of_carriage" data-align="center">实际承运人</th>
+									<th data-field="money_of_transport" data-align="center">运费金额</th>
+									<th data-field="state_of_contract" data-align="center">合同状态</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+				<!--货物信息结束-->
+			</div>
+		</div>
+
+		<!--网站备案和底部信息-->
+		<footer id="footer"> </footer>
+
+		<script src="/autocarrier/static/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/search.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-serializejson.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#header").load('index-top.html');
+				$("#footer").load('index-buttom.html');
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					type: "get",
+					url: "/autocarrier/json/contract-list.json",
+					dataType: "json",
+					async: false,
+					success: function(list) {
+						$("#table").bootstrapTable('load', list);
+					},
+					error: function() {
+						alert("错误");
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

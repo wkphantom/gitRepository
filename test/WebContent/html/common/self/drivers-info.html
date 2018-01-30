@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 驾驶证信息录入页面    驾驶证号  准驾车型  驾驶证有效期   驾驶证扫描件（图片） -->
+<html>
+
+	<head id="head">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=2">
+		<meta name="keywords" content="无车承运人,发货,物流,衡东,衡水,衡东物流" />
+		<meta name="author" content="Mr.w(魏凯)" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/city-picker.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/css/jquery/form-validate.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="/autocarrier/static/plugin/jquery-time/css/lq.datetimepick.css" />
+		<!--只在本文件使用的样式-->
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<!--顶部信息-->
+		<header id="header"> </header>
+
+		<!--正文内容-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<form class="form-horizontal">
+						<hr />
+						<div class="form-group">
+							<label class="col-sm-4 control-label">驾驶证证号</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control required" 
+								placeholder="请输入驾驶证证号" data-toggle="tooltip" 
+								data-valid="isNonEmpty" data-error="驾驶证证号不能为空">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">准驾车型</label>
+							<div class="col-sm-4">
+								 <select id="banktype" name="banktype" class="selectpicker  form-control" 
+								 	 data-live-search="false">
+                                        <option value="0"></option>
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                        <option value="5"></option>
+                                        <option value="6"></option>
+                                        <option value="7"></option>
+                                        <option value="8"></option>
+                                        <option value="9"></option>
+                                        <option value="10"></option>
+                                </select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">驾驶证有效期</label>
+							<div class="col-sm-4">
+								<input id="datetimepicker" type="text" class="form-control" 
+									placeholder="请选择驾驶证有效期" data-toggle="tooltip" 
+									data-valid="isMobile" data-error="请选择正确的日期">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">驾驶证扫描件</label>
+							<div class="col-sm-4">
+								<input type="file">
+								<img />
+							</div>
+						</div>						
+						<div class="form-group">
+							<div class="col-sm-3">
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="btn btn-danger ">取消</button>
+							</div>
+							<div class="col-sm-2">
+
+							</div>
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-success ">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+
+		<!--网站备案和底部信息-->
+		<footer id="footer"> </footer>
+
+		<script src="/autocarrier/static/js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/city-picker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/search.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/jquery/jquery-validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/plugin/bootstrap-table/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/autocarrier/static/js/common/drivers-info.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="/autocarrier/static/plugin/jquery-time/js/selectUi.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="/autocarrier/static/plugin/jquery-time/js/lq.datetimepick.js" type="text/javascript" charset="UTF-8"></script>
+
+		<!--模版引擎位置-->
+		<script id="" type="text/html">
+		</script>
+		<!--/*引入头部和底部文件*/-->
+		<script type="text/javascript">
+			$(function() {
+				$("#header").load('/autocarrier/html/index-top.html');
+				$("#footer").load('/autocarrier/html/index-buttom.html');
+			});
+		</script>
+	</body>
+
+</html>
